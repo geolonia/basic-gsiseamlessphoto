@@ -1,502 +1,34 @@
 {
   "version": 8,
-  "name": "Geolonia Basic",
+  "name": "GSI Seamlessphoto with Geolonia Basic",
   "metadata": {},
   "sources": {
     "oceanus": {
       "type": "vector",
       "url": "https://tileserver.geolonia.com/oceanus/tiles.json?key=YOUR-API-KEY"
     },
-    "geolonia-water": {
-      "type": "vector",
-      "url": "https://tileserver.geolonia.com/water/tiles.json?key=YOUR-API-KEY"
-    },
     "geolonia": {
       "type": "vector",
       "minzoom": 8,
       "url": "https://tileserver.geolonia.com/v2/tiles.json?key=YOUR-API-KEY"
+    },
+    "gsi-seamlessphoto": {
+      "type": "raster",
+      "minzoom": 2,
+      "maxzoom": 18,
+      "tiles": [
+        "https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg"
+      ],
+      "attribution": "<a href=\"https://www.gsi.go.jp/\" target=\"_blank\" rel=\"noopener noreferrer\">© GSI Japan</a>"
     }
   },
   "sprite": "https://sprites.geolonia.com/basic",
   "glyphs": "https://glyphs.geolonia.com/{fontstack}/{range}.pbf",
   "layers": [
     {
-      "id": "background",
-      "type": "background",
-      "paint": {
-        "background-color": "rgba(254, 254, 254, 1)"
-      }
-    },
-    {
-      "id": "landcover-grass",
-      "type": "fill",
-      "source": "geolonia",
-      "source-layer": "landcover",
-      "filter": [
-        "==",
-        "class",
-        "grass"
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#d8e8c8",
-        "fill-opacity": 1
-      }
-    },
-    {
-      "id": "landcover-wood",
-      "type": "fill",
-      "source": "geolonia",
-      "source-layer": "landcover",
-      "filter": [
-        "==",
-        "class",
-        "wood"
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#6a4",
-        "fill-opacity": 0.2,
-        "fill-outline-color": "hsla(0, 0%, 0%, 0.03)",
-        "fill-antialias": {
-          "base": 1,
-          "stops": [
-            [
-              0,
-              false
-            ],
-            [
-              9,
-              true
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "id": "landcover-grass-park",
-      "type": "fill",
-      "source": "geolonia",
-      "source-layer": "park",
-      "filter": [
-        "==",
-        "class",
-        "public_park"
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#d8e8c8",
-        "fill-opacity": 0.8
-      }
-    },
-    {
-      "id": "water",
-      "type": "fill",
-      "source": "geolonia-water",
-      "source-layer": "water",
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(152, 209, 252, 1)"
-      }
-    },
-    {
-      "id": "water-river-lake-ja",
-      "type": "fill",
-      "source": "geolonia",
-      "source-layer": "water",
-      "filter": [
-        "all",
-        [
-          "==",
-          [
-            "get",
-            "class"
-          ],
-          "lake"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(152, 209, 252, 1)"
-      }
-    },
-    {
-      "id": "oc-ocean200",
-      "type": "fill",
-      "source": "oceanus",
-      "source-layer": "oc-water",
-      "filter": [
-        "all",
-        [
-          "==",
-          [
-            "get",
-            "class"
-          ],
-          "ocean"
-        ],
-        [
-          "==",
-          [
-            "get",
-            "subclass"
-          ],
-          200
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(2, 183, 237, 1)"
-      }
-    },
-    {
-      "id": "oc-ocean1000",
-      "type": "fill",
-      "source": "oceanus",
-      "source-layer": "oc-water",
-      "filter": [
-        "all",
-        [
-          "==",
-          [
-            "get",
-            "class"
-          ],
-          "ocean"
-        ],
-        [
-          "==",
-          [
-            "get",
-            "subclass"
-          ],
-          1000
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(2, 170, 228, 1)"
-      }
-    },
-    {
-      "id": "oc-ocean2000",
-      "type": "fill",
-      "source": "oceanus",
-      "source-layer": "oc-water",
-      "filter": [
-        "all",
-        [
-          "==",
-          [
-            "get",
-            "class"
-          ],
-          "ocean"
-        ],
-        [
-          "==",
-          [
-            "get",
-            "subclass"
-          ],
-          2000
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(3, 147, 212, 1)"
-      }
-    },
-    {
-      "id": "oc-ocean3000",
-      "type": "fill",
-      "source": "oceanus",
-      "source-layer": "oc-water",
-      "filter": [
-        "all",
-        [
-          "==",
-          [
-            "get",
-            "class"
-          ],
-          "ocean"
-        ],
-        [
-          "==",
-          [
-            "get",
-            "subclass"
-          ],
-          3000
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(3, 136, 205, 1)"
-      }
-    },
-    {
-      "id": "oc-ocean4000",
-      "type": "fill",
-      "source": "oceanus",
-      "source-layer": "oc-water",
-      "filter": [
-        "all",
-        [
-          "==",
-          [
-            "get",
-            "class"
-          ],
-          "ocean"
-        ],
-        [
-          "==",
-          [
-            "get",
-            "subclass"
-          ],
-          4000
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(4, 121, 195, 1)"
-      }
-    },
-    {
-      "id": "oc-ocean5000",
-      "type": "fill",
-      "source": "oceanus",
-      "source-layer": "oc-water",
-      "filter": [
-        "all",
-        [
-          "==",
-          [
-            "get",
-            "class"
-          ],
-          "ocean"
-        ],
-        [
-          "==",
-          [
-            "get",
-            "subclass"
-          ],
-          5000
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(5, 99, 181, 1)"
-      }
-    },
-    {
-      "id": "oc-ocean6000",
-      "type": "fill",
-      "source": "oceanus",
-      "source-layer": "oc-water",
-      "filter": [
-        "all",
-        [
-          "==",
-          [
-            "get",
-            "class"
-          ],
-          "ocean"
-        ],
-        [
-          "==",
-          [
-            "get",
-            "subclass"
-          ],
-          6000
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(6, 69, 161, 1)"
-      }
-    },
-    {
-      "id": "oc-ocean7000",
-      "type": "fill",
-      "source": "oceanus",
-      "source-layer": "oc-water",
-      "filter": [
-        "all",
-        [
-          "==",
-          [
-            "get",
-            "class"
-          ],
-          "ocean"
-        ],
-        [
-          "==",
-          [
-            "get",
-            "subclass"
-          ],
-          7000
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(7, 45, 145, 1)"
-      }
-    },
-    {
-      "id": "oc-ocean8000",
-      "type": "fill",
-      "source": "oceanus",
-      "source-layer": "oc-water",
-      "filter": [
-        "all",
-        [
-          "==",
-          [
-            "get",
-            "class"
-          ],
-          "ocean"
-        ],
-        [
-          "==",
-          [
-            "get",
-            "subclass"
-          ],
-          8000
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(8, 26, 132, 1)"
-      }
-    },
-    {
-      "id": "oc-ocean9000",
-      "type": "fill",
-      "source": "oceanus",
-      "source-layer": "oc-water",
-      "filter": [
-        "all",
-        [
-          "==",
-          [
-            "get",
-            "class"
-          ],
-          "ocean"
-        ],
-        [
-          "==",
-          [
-            "get",
-            "subclass"
-          ],
-          9000
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(9, 9, 121, 1)"
-      }
-    },
-    {
-      "id": "oc-ocean10000",
-      "type": "fill",
-      "source": "oceanus",
-      "source-layer": "oc-water",
-      "filter": [
-        "all",
-        [
-          "==",
-          [
-            "get",
-            "class"
-          ],
-          "ocean"
-        ],
-        [
-          "==",
-          [
-            "get",
-            "subclass"
-          ],
-          10000
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(17, 17, 136, 1)"
-      }
-    },
-    {
-      "id": "oc-glacier",
-      "type": "fill",
-      "source": "oceanus",
-      "source-layer": "oc-glacier",
-      "maxzoom": 8,
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(241, 248, 254, 1)"
-      }
-    },
-    {
-      "id": "oc-forest",
-      "type": "fill",
-      "source": "oceanus",
-      "source-layer": "oc-forest",
-      "minzoom": 0,
-      "maxzoom": 8,
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(223, 236, 218, 1)"
-      }
+      "id": "gsi",
+      "type": "raster",
+      "source": "gsi-seamlessphoto"
     },
     {
       "id": "oc-waterway-river-ja",
@@ -681,67 +213,6 @@
         "text-color": "#74aee9",
         "text-halo-width": 1.5,
         "text-halo-color": "rgba(255,255,255,0.7)"
-      }
-    },
-    {
-      "id": "oc-lake-ja",
-      "type": "fill",
-      "source": "oceanus",
-      "source-layer": "oc-water",
-      "minzoom": 4,
-      "maxzoom": 8,
-      "filter": [
-        "all",
-        [
-          "==",
-          [
-            "get",
-            "class"
-          ],
-          "lakes"
-        ],
-        [
-          "has",
-          "jflag"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(152, 209, 252, 1)"
-      }
-    },
-    {
-      "id": "oc-lake",
-      "type": "fill",
-      "source": "oceanus",
-      "source-layer": "oc-water",
-      "minzoom": 4,
-      "filter": [
-        "all",
-        [
-          "==",
-          [
-            "get",
-            "class"
-          ],
-          "lakes"
-        ],
-        [
-          "==",
-          [
-            "has",
-            "jflag"
-          ],
-          false
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(152, 209, 252, 1)"
       }
     },
     {
@@ -1374,7 +845,6 @@
           "Noto Sans Regular"
         ],
         "text-anchor": "top",
-        "icon-image": "circle-11",
         "text-field": [
           "to-string",
           [
@@ -1553,135 +1023,6 @@
         "text-color": "#666",
         "text-halo-width": 1,
         "text-halo-color": "#ffffff"
-      }
-    },
-    {
-      "id": "landuse-commercial",
-      "type": "fill",
-      "source": "geolonia",
-      "source-layer": "landuse",
-      "filter": [
-        "all",
-        [
-          "==",
-          "$type",
-          "Polygon"
-        ],
-        [
-          "==",
-          "class",
-          "commercial"
-        ]
-      ],
-      "paint": {
-        "fill-color": "hsla(0, 60%, 87%, 0.23)"
-      }
-    },
-    {
-      "id": "landuse-industrial",
-      "type": "fill",
-      "source": "geolonia",
-      "source-layer": "landuse",
-      "filter": [
-        "all",
-        [
-          "==",
-          "$type",
-          "Polygon"
-        ],
-        [
-          "==",
-          "class",
-          "industrial"
-        ]
-      ],
-      "paint": {
-        "fill-color": "hsla(49, 100%, 88%, 0.34)"
-      }
-    },
-    {
-      "id": "park",
-      "type": "fill",
-      "source": "geolonia",
-      "source-layer": "park",
-      "filter": [
-        "==",
-        "$type",
-        "Polygon"
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(102, 170, 68, 1)",
-        "fill-opacity": {
-          "stops": [
-            [
-              7,
-              0
-            ],
-            [
-              9,
-              0.2
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "id": "landuse-cemetery",
-      "type": "fill",
-      "source": "geolonia",
-      "source-layer": "landuse",
-      "filter": [
-        "==",
-        "class",
-        "cemetery"
-      ],
-      "paint": {
-        "fill-color": "#e0e4dd"
-      }
-    },
-    {
-      "id": "landuse-hospital",
-      "type": "fill",
-      "source": "geolonia",
-      "source-layer": "landuse",
-      "filter": [
-        "==",
-        "class",
-        "hospital"
-      ],
-      "paint": {
-        "fill-color": "#fde"
-      }
-    },
-    {
-      "id": "landuse-school",
-      "type": "fill",
-      "source": "geolonia",
-      "source-layer": "landuse",
-      "filter": [
-        "==",
-        "class",
-        "school"
-      ],
-      "paint": {
-        "fill-color": "#f0e8f8"
-      }
-    },
-    {
-      "id": "landuse-railway",
-      "type": "fill",
-      "source": "geolonia",
-      "source-layer": "landuse",
-      "filter": [
-        "==",
-        "class",
-        "railway"
-      ],
-      "paint": {
-        "fill-color": "hsla(30, 19%, 90%, 0.4)"
       }
     },
     {
@@ -2091,7 +1432,6 @@
         "line-join": "round"
       },
       "paint": {
-        "line-color": "#e9ac77",
         "line-width": {
           "base": 1.2,
           "stops": [
@@ -2112,7 +1452,8 @@
               22
             ]
           ]
-        }
+        },
+        "line-color": "#fff"
       }
     },
     {
@@ -2365,7 +1706,7 @@
         "line-join": "round"
       },
       "paint": {
-        "line-color": "#fff4c6",
+        "line-color": "rgba(255, 225, 163, 1)",
         "line-width": {
           "base": 1.2,
           "stops": [
@@ -2408,7 +1749,6 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "#ffdaa6",
         "line-width": {
           "base": 1.2,
           "stops": [
@@ -2425,7 +1765,8 @@
               18
             ]
           ]
-        }
+        },
+        "line-color": "rgba(80, 166, 61, 1)"
       }
     },
     {
@@ -2526,46 +1867,6 @@
           ]
         },
         "line-opacity": 1
-      }
-    },
-    {
-      "id": "aeroway-area",
-      "type": "fill",
-      "source": "geolonia",
-      "source-layer": "aeroway",
-      "minzoom": 4,
-      "filter": [
-        "all",
-        [
-          "==",
-          "$type",
-          "Polygon"
-        ],
-        [
-          "in",
-          "class",
-          "runway",
-          "taxiway"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-opacity": {
-          "base": 1,
-          "stops": [
-            [
-              13,
-              0
-            ],
-            [
-              14,
-              1
-            ]
-          ]
-        },
-        "fill-color": "rgba(255, 255, 255, 1)"
       }
     },
     {
@@ -2694,347 +1995,6 @@
         "fill-outline-color": "#cfcdca",
         "fill-opacity": 0.9,
         "fill-antialias": false
-      }
-    },
-    {
-      "id": "highway-motorway-link-casing",
-      "type": "line",
-      "source": "geolonia",
-      "source-layer": "transportation",
-      "minzoom": 12,
-      "filter": [
-        "all",
-        [
-          "!in",
-          "brunnel",
-          "bridge",
-          "tunnel"
-        ],
-        [
-          "==",
-          "class",
-          "motorway_link"
-        ]
-      ],
-      "layout": {
-        "line-cap": "round",
-        "line-join": "round"
-      },
-      "paint": {
-        "line-color": "#e9ac77",
-        "line-opacity": 1,
-        "line-width": {
-          "base": 1.2,
-          "stops": [
-            [
-              12,
-              1
-            ],
-            [
-              13,
-              3
-            ],
-            [
-              14,
-              4
-            ],
-            [
-              20,
-              15
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "id": "highway-link-casing",
-      "type": "line",
-      "source": "geolonia",
-      "source-layer": "transportation",
-      "minzoom": 13,
-      "filter": [
-        "all",
-        [
-          "!in",
-          "brunnel",
-          "bridge",
-          "tunnel"
-        ],
-        [
-          "in",
-          "class",
-          "primary_link",
-          "secondary_link",
-          "tertiary_link",
-          "trunk_link"
-        ]
-      ],
-      "layout": {
-        "line-cap": "round",
-        "line-join": "round",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#e9ac77",
-        "line-opacity": 1,
-        "line-width": {
-          "base": 1.2,
-          "stops": [
-            [
-              12,
-              1
-            ],
-            [
-              13,
-              3
-            ],
-            [
-              14,
-              4
-            ],
-            [
-              20,
-              15
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "id": "highway-minor-casing",
-      "type": "line",
-      "source": "geolonia",
-      "source-layer": "transportation",
-      "minzoom": 13,
-      "filter": [
-        "all",
-        [
-          "==",
-          "$type",
-          "LineString"
-        ],
-        [
-          "all",
-          [
-            "!=",
-            "brunnel",
-            "tunnel"
-          ],
-          [
-            "in",
-            "class",
-            "minor",
-            "service",
-            "track"
-          ]
-        ]
-      ],
-      "layout": {
-        "line-cap": "round",
-        "line-join": "round"
-      },
-      "paint": {
-        "line-color": "rgba(222, 222, 222, 1)",
-        "line-opacity": {
-          "stops": [
-            [
-              12,
-              0
-            ],
-            [
-              12.5,
-              1
-            ]
-          ]
-        },
-        "line-width": {
-          "base": 1.2,
-          "stops": [
-            [
-              12,
-              0.5
-            ],
-            [
-              13,
-              1
-            ],
-            [
-              14,
-              4
-            ],
-            [
-              20,
-              15
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "id": "highway-secondary-tertiary-casing",
-      "type": "line",
-      "source": "geolonia",
-      "source-layer": "transportation",
-      "filter": [
-        "all",
-        [
-          "!in",
-          "brunnel",
-          "bridge",
-          "tunnel"
-        ],
-        [
-          "in",
-          "class",
-          "secondary",
-          "tertiary"
-        ]
-      ],
-      "layout": {
-        "line-cap": "butt",
-        "line-join": "round",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(222, 222, 222, 1)",
-        "line-opacity": 1,
-        "line-width": {
-          "base": 1.2,
-          "stops": [
-            [
-              8,
-              1.5
-            ],
-            [
-              20,
-              17
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "id": "highway-primary-casing",
-      "type": "line",
-      "source": "geolonia",
-      "source-layer": "transportation",
-      "minzoom": 5,
-      "filter": [
-        "all",
-        [
-          "!in",
-          "brunnel",
-          "bridge",
-          "tunnel"
-        ],
-        [
-          "in",
-          "class",
-          "primary"
-        ]
-      ],
-      "layout": {
-        "line-cap": "butt",
-        "line-join": "round",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(222, 222, 222, 1)",
-        "line-opacity": {
-          "stops": [
-            [
-              7,
-              0
-            ],
-            [
-              8,
-              1
-            ]
-          ]
-        },
-        "line-width": {
-          "base": 1.2,
-          "stops": [
-            [
-              7,
-              0
-            ],
-            [
-              8,
-              0.6
-            ],
-            [
-              9,
-              1.5
-            ],
-            [
-              20,
-              22
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "id": "highway-trunk-casing",
-      "type": "line",
-      "source": "geolonia",
-      "source-layer": "transportation",
-      "minzoom": 5,
-      "filter": [
-        "all",
-        [
-          "!in",
-          "brunnel",
-          "bridge",
-          "tunnel"
-        ],
-        [
-          "in",
-          "class",
-          "trunk"
-        ]
-      ],
-      "layout": {
-        "line-cap": "butt",
-        "line-join": "round",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(222, 222, 222, 1)",
-        "line-opacity": {
-          "stops": [
-            [
-              5,
-              0
-            ],
-            [
-              6,
-              1
-            ]
-          ]
-        },
-        "line-width": {
-          "base": 1.2,
-          "stops": [
-            [
-              5,
-              0
-            ],
-            [
-              6,
-              0.6
-            ],
-            [
-              7,
-              1.5
-            ],
-            [
-              20,
-              22
-            ]
-          ]
-        }
       }
     },
     {
@@ -3259,7 +2219,7 @@
       "type": "line",
       "source": "geolonia",
       "source-layer": "transportation",
-      "minzoom": 13,
+      "minzoom": 14,
       "filter": [
         "all",
         [
@@ -3290,23 +2250,7 @@
       "paint": {
         "line-color": "#fff",
         "line-opacity": 1,
-        "line-width": {
-          "base": 1.2,
-          "stops": [
-            [
-              13.5,
-              0
-            ],
-            [
-              14,
-              2.5
-            ],
-            [
-              20,
-              11.5
-            ]
-          ]
-        }
+        "line-width": 1
       }
     },
     {
@@ -3349,7 +2293,7 @@
             ],
             [
               20,
-              13
+              5
             ]
           ]
         }
@@ -3388,7 +2332,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(255, 255, 255, 1)",
+        "line-color": "rgba(255, 225, 163, 1)",
         "line-width": {
           "base": 1.2,
           "stops": [
@@ -3441,7 +2385,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(255, 255, 255, 1)",
+        "line-color": "rgba(255, 225, 163, 1)",
         "line-width": {
           "base": 1.2,
           "stops": [
@@ -3495,7 +2439,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(255, 255, 255, 1)",
+        "line-color": "rgba(80, 166, 61, 1)",
         "line-width": {
           "base": 1.2,
           "stops": [
@@ -3672,7 +2616,8 @@
         ]
       ],
       "layout": {
-        "line-join": "round"
+        "line-join": "round",
+        "visibility": "visible"
       },
       "paint": {
         "line-color": "rgba(222, 222, 222, 1)",
@@ -3993,10 +2938,11 @@
         ]
       ],
       "layout": {
-        "line-join": "round"
+        "line-join": "round",
+        "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(255, 255, 255, 1)",
+        "line-color": "rgba(255, 225, 163, 1)",
         "line-width": {
           "base": 1.2,
           "stops": [
@@ -4038,7 +2984,7 @@
         "line-join": "round"
       },
       "paint": {
-        "line-color": "rgba(255, 255, 255, 1)",
+        "line-color": "rgba(80, 166, 61, 1)",
         "line-width": {
           "base": 1.2,
           "stops": [
@@ -4384,44 +3330,6 @@
         "text-color": "#74aee9",
         "text-halo-width": 1.5,
         "text-halo-color": "rgba(255,255,255,0.7)"
-      }
-    },
-    {
-      "id": "building",
-      "type": "fill",
-      "source": "geolonia",
-      "source-layer": "building",
-      "minzoom": 15,
-      "paint": {
-        "fill-opacity": 0.6,
-        "fill-color": "rgba(225, 225, 225, 1)",
-        "fill-outline-color": "#ffffff",
-        "fill-antialias": true
-      }
-    },
-    {
-      "id": "building-3d",
-      "type": "fill-extrusion",
-      "source": "geolonia",
-      "source-layer": "building",
-      "minzoom": 15,
-      "metadata": {
-        "visible-on-3d": true
-      },
-      "layout": {
-        "visibility": "none"
-      },
-      "paint": {
-        "fill-extrusion-color": "#dedede",
-        "fill-extrusion-height": [
-          "get",
-          "render_height"
-        ],
-        "fill-extrusion-base": [
-          "get",
-          "render_min_height"
-        ],
-        "fill-extrusion-opacity": 0.4
       }
     },
     {
