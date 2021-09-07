@@ -1766,7 +1766,7 @@
             ]
           ]
         },
-        "line-color": "rgba(80, 166, 61, 1)"
+        "line-color": "rgba(100,195,115,1)"
       }
     },
     {
@@ -2385,7 +2385,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(255, 225, 163, 1)",
+        "line-color": "rgba(235,122,122,1)",
         "line-width": {
           "base": 1.2,
           "stops": [
@@ -2439,7 +2439,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(80, 166, 61, 1)",
+        "line-color": "rgba(100,195,115,1)",
         "line-width": {
           "base": 1.2,
           "stops": [
@@ -2942,7 +2942,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(255, 225, 163, 1)",
+        "line-color": "rgba(235,122,122,1)",
         "line-width": {
           "base": 1.2,
           "stops": [
