@@ -19,6 +19,7 @@
       "tiles": [
         "https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg"
       ],
+      "tileSize": 256,
       "attribution": "<a href=\"https://www.gsi.go.jp/\" target=\"_blank\" rel=\"noopener noreferrer\">© GSI Japan</a>"
     }
   },
